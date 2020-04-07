@@ -19,22 +19,27 @@ namespace CalculadoraProb
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            int x, n, resultcombinatoria, factN=0,factX=0;
-
-            x = int.Parse(txtValorX.Text);
-            n = int.Parse(txtValorN.Text);
-
-            if (x!=null || n != null)
+            int x, n, resultcombinatoria,resta,multidenom;
+            int factN = 0, factX = 0;
+            if (string.IsNullOrEmpty(txtValorX.Text)|| string.IsNullOrEmpty(txtValorN.Text))
             {
+                MessageBox.Show("Ingrese numeros en las casillas");
 
-                factN = Factorial(n);
-                factX = Factorial(x);
-
-                resultadototal.Text = factX.ToString();
             }
             else
             {
-                MessageBox.Show("Ingrese numeros");
+                x = int.Parse(txtValorX.Text);
+                n = int.Parse(txtValorN.Text);
+
+                factN = Factorial(n);
+                factX = Factorial(x);
+                resta = Factorial((n - x));
+                multidenom = factX * resta;
+                resultcombinatoria = factN / multidenom;
+                resultadototal.Text = resultcombinatoria.ToString();
+                    
+
+
             }
         }
 
@@ -47,6 +52,7 @@ namespace CalculadoraProb
             }
             return fact;
         }
+
 
     }
 }
