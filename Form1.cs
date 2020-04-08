@@ -21,6 +21,8 @@ namespace CalculadoraProb
         {
             int x, n, resultcombinatoria,resta,multidenom;
             int factN = 0, factX = 0;
+
+            //Validacion de campos vacios
             if (string.IsNullOrEmpty(txtValorX.Text)|| string.IsNullOrEmpty(txtValorN.Text))
             {
                 MessageBox.Show("Ingrese numeros en las casillas");
@@ -28,19 +30,29 @@ namespace CalculadoraProb
             }
             else
             {
+                //Declaracion variable de textbox
                 x = int.Parse(txtValorX.Text);
                 n = int.Parse(txtValorN.Text);
+                //validacion si x mayor que n
+                if (x > n)
+                {
+                    MessageBox.Show("X no puede ser mayor que N");
+                }
+                else
+                {
 
-                factN = Factorial(n);
-                factX = Factorial(x);
-                resta = Factorial((n - x));
-                multidenom = factX * resta;
-                resultcombinatoria = factN / multidenom;
-                resultadototal.Text = resultcombinatoria.ToString();
-                    
-
-
+                    //Combinatoria
+                    factN = Factorial(n);
+                    factX = Factorial(x);
+                    resta = Factorial((n - x));
+                    multidenom = factX * resta;
+                    resultcombinatoria = factN / multidenom;
+                    //Fin Combinatoria
+                    //Mostrar Resultado de prueba
+                    resultadototal.Text = resultcombinatoria.ToString();
+                }                                          
             }
+
         }
 
         private int Factorial(int n)
