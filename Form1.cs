@@ -19,8 +19,8 @@ namespace CalculadoraProb
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            int x, n, resultcombinatoria,resta,multidenom;
-            int factN = 0, factX = 0;
+            int x, n, resultcombinatoria;
+            double p,resultprobabilidad;
 
             //Validacion de campos vacios
             if (string.IsNullOrEmpty(txtValorX.Text)|| string.IsNullOrEmpty(txtValorN.Text))
@@ -40,15 +40,10 @@ namespace CalculadoraProb
                 }
                 else
                 {
+                    //Llamando metodo para calcular Combinatoria.
+                    resultcombinatoria = Combinatoria(x,n);
+                    //Fin llamado.
 
-                    //Combinatoria
-                    factN = Factorial(n);
-                    factX = Factorial(x);
-                    resta = Factorial((n - x));
-                    multidenom = factX * resta;
-                    resultcombinatoria = factN / multidenom;
-                    //Fin Combinatoria
-                    //Mostrar Resultado de prueba
                     resultadototal.Text = resultcombinatoria.ToString();
                 }                                          
             }
@@ -65,6 +60,22 @@ namespace CalculadoraProb
             return fact;
         }
 
+        private int Combinatoria(int x,int n)
+        {
+            int result,resta,multidenom;
+            int factN = 0, factX = 0;
+            factN = Factorial(n);
+            factX = Factorial(x);
+            resta = Factorial((n - x));
+            multidenom = factX * resta;
+            result = factN / multidenom;
 
+            return result;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
