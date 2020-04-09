@@ -19,51 +19,61 @@ namespace CalculadoraProb
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            int x, n, resultcombinatoria;
-            double p,resultprobabilidad;
+            double x, n;
+            double p,resultprobabilidad, resultcombinatoria;
+
+
 
             //Validacion de campos vacios
-            if (string.IsNullOrEmpty(txtValorX.Text)|| string.IsNullOrEmpty(txtValorN.Text))
+            if (string.IsNullOrEmpty(txtValorX.Text) || string.IsNullOrEmpty(txtValorN.Text) || string.IsNullOrEmpty(txtValorP.Text))
             {
-                MessageBox.Show("Ingrese numeros en las casillas");
+                MessageBox.Show("Ingrese numeros en todas las casillas");
 
             }
             else
             {
                 //Declaracion variable de textbox
-                x = int.Parse(txtValorX.Text);
-                n = int.Parse(txtValorN.Text);
+                x = double.Parse(txtValorX.Text);
+                n = double.Parse(txtValorN.Text);
+                p = double.Parse(txtValorP.Text);
                 //validacion si x mayor que n
                 if (x > n)
                 {
                     MessageBox.Show("X no puede ser mayor que N");
                 }
+                else if(p<0 || p>1)
+                {
+                    MessageBox.Show("P debe estar entre 0 y 1 (Como Decimal y con coma, no con punto).");
+                }
                 else
                 {
-                    //Llamando metodo para calcular Combinatoria.
-                    resultcombinatoria = Combinatoria(x,n);
-                    //Fin llamado.
 
-                    resultadototal.Text = resultcombinatoria.ToString();
+                    //Llamando metodo para calcular Combinatoria.
+                    resultcombinatoria = Combinatoria(x, n);
+                    //Fin llamado.
+                    resultprobabilidad = resultcombinatoria * Math.Pow(p,x) * Math.Pow((1-p),(n-x));
+                    //5.005
+                    resultadototal.Text = resultprobabilidad.ToString();
                 }                                          
             }
 
         }
 
-        private int Factorial(int n)
+        private double Factorial(double n)
         {
-            int fact = 1;
-            for (int i = 1; i <= n; i++)
+            double fact = 1;
+            while (n != 0)
             {
-                fact *= i;
+                fact = fact * n;
+                n--;
             }
             return fact;
         }
 
-        private int Combinatoria(int x,int n)
+        private double Combinatoria(double x,double n)
         {
-            int result,resta,multidenom;
-            int factN = 0, factX = 0;
+            double result,resta,multidenom;
+            double factN, factX;
             factN = Factorial(n);
             factX = Factorial(x);
             resta = Factorial((n - x));
