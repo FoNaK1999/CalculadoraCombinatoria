@@ -15,13 +15,14 @@ namespace CalculadoraProb
         public Form1()
         {
             InitializeComponent();
+            panel2.BackColor = Color.FromArgb(140, Color.Black);
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             double x, n;
-            double p,resultprobabilidad, resultcombinatoria;
-
+            double p, resultcombinatoria;
+            decimal resultprobabilidad;
 
 
             //Validacion de campos vacios
@@ -51,9 +52,15 @@ namespace CalculadoraProb
                     //Llamando metodo para calcular Combinatoria.
                     resultcombinatoria = Combinatoria(x, n);
                     //Fin llamado.
-                    resultprobabilidad = resultcombinatoria * Math.Pow(p,x) * Math.Pow((1-p),(n-x));
-                    //5.005
-                    resultadototal.Text = resultprobabilidad.ToString();
+                    resultprobabilidad = Convert.ToDecimal(resultcombinatoria * Math.Pow(p,x) * Math.Pow((1-p),(n-x)));
+
+                    resultadototal.Text = resultprobabilidad.ToString("#0.00000");
+                    //Mostrar resultados en ListBox.
+                    listhistorial.Items.Add(" X= " + x.ToString() + " N= " + n.ToString() + " P= " + p.ToString() + " = " + resultprobabilidad.ToString("#0.00000"));
+                    //Fin ListBox.
+
+                    
+                    
                 }                                          
             }
 
@@ -84,6 +91,45 @@ namespace CalculadoraProb
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtValorN.Text = " ";
+            txtValorX.Text = " ";
+            txtValorP.Text = " ";
+        }
+
+        private void listhistorial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+           
+
+        }
+
+        private void fondo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
