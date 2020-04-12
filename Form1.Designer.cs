@@ -107,9 +107,9 @@
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
             this.label8.Location = new System.Drawing.Point(13, 13);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(345, 19);
+            this.label8.Size = new System.Drawing.Size(329, 19);
             this.label8.TabIndex = 2;
-            this.label8.Text = "Calculadora de Probabilidades Binominal";
+            this.label8.Text = "Calculadora de Probabilidad Binominal";
             // 
             // MoverCalculadora
             // 
@@ -340,9 +340,9 @@
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(0, 53);
+            this.panel4.Location = new System.Drawing.Point(0, 56);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(720, 414);
+            this.panel4.Size = new System.Drawing.Size(720, 411);
             this.panel4.TabIndex = 16;
             // 
             // bunifuDragControl1
@@ -360,6 +360,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora";
