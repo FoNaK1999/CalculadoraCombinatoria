@@ -42,7 +42,7 @@ namespace CalculadoraProb
                 {
                     MessageBox.Show("X no puede ser mayor que N");
                 }
-                else if(p<0 || p>1)
+                else if(p<0 || p>=1)
                 {
                     MessageBox.Show("P debe estar entre 0 y 1 (Como Decimal y con coma, no con punto).");
                 }
@@ -53,7 +53,7 @@ namespace CalculadoraProb
                     resultcombinatoria = Combinatoria(x, n);
                     //Fin llamado.
                     resultprobabilidad = Convert.ToDecimal(resultcombinatoria * Math.Pow(p,x) * Math.Pow((1-p),(n-x)));
-
+                    lbresultcomb.Text = resultcombinatoria.ToString();
                     resultadototal.Text = resultprobabilidad.ToString("#0.00000");
                     //Mostrar resultados en ListBox.
                     listhistorial.Items.Add(" X= " + x.ToString() + " N= " + n.ToString() + " P= " + p.ToString() + " = " + resultprobabilidad.ToString("#0.00000"));
@@ -130,6 +130,16 @@ namespace CalculadoraProb
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnBorrarS_Click(object sender, EventArgs e)
+        {
+            listhistorial.Items.Remove(listhistorial.SelectedItem);
+        }
+
+        private void lbresultcomb_Click(object sender, EventArgs e)
         {
 
         }
