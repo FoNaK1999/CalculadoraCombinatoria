@@ -23,7 +23,8 @@ namespace CalculadoraProb
             double x, n;
             double p, resultcombinatoria;
             decimal resultprobabilidad;
-
+            string[] aux;
+            double resultado;
 
             //Validacion de campos vacios
             if (string.IsNullOrEmpty(txtValorX.Text) || string.IsNullOrEmpty(txtValorN.Text) || string.IsNullOrEmpty(txtValorP.Text))
@@ -36,7 +37,19 @@ namespace CalculadoraProb
                 //Declaracion variable de textbox
                 x = double.Parse(txtValorX.Text);
                 n = double.Parse(txtValorN.Text);
-                p = double.Parse(txtValorP.Text);
+
+                if (txtValorP.Text.Contains("/"))
+                {
+                    aux = txtValorP.Text.Split(new char[] { '/' }, 2);
+                    resultado = double.Parse(aux[0]) / double.Parse(aux[1]);
+                    p = resultado;
+                }
+                else
+                {
+                    resultado = double.Parse(txtValorP.Text);
+                    p = resultado;
+                }
+                
                 //validacion si x mayor que n
                 if (x > n)
                 {
