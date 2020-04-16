@@ -37,6 +37,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MoverCalculadora = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtrangofin = new System.Windows.Forms.TextBox();
+            this.lbrangohasta = new System.Windows.Forms.Label();
+            this.txtrangoin = new System.Windows.Forms.TextBox();
+            this.btnBorrarS = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,9 +62,7 @@
             this.txtValorN = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.btnBorrarS = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lbresultcomb = new System.Windows.Forms.Label();
+            this.btnRemoveList = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -131,8 +134,11 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.lbresultcomb);
-            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.btnRemoveList);
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.txtrangofin);
+            this.panel2.Controls.Add(this.lbrangohasta);
+            this.panel2.Controls.Add(this.txtrangoin);
             this.panel2.Controls.Add(this.btnBorrarS);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
@@ -149,18 +155,74 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.txtValorN);
-            this.panel2.Location = new System.Drawing.Point(59, 48);
+            this.panel2.Location = new System.Drawing.Point(36, 48);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(596, 269);
+            this.panel2.Size = new System.Drawing.Size(657, 350);
             this.panel2.TabIndex = 15;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(182, 26);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(134, 17);
+            this.checkBox1.TabIndex = 24;
+            this.checkBox1.Text = "Rango de numeros?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // txtrangofin
+            // 
+            this.txtrangofin.Location = new System.Drawing.Point(247, 64);
+            this.txtrangofin.Name = "txtrangofin";
+            this.txtrangofin.Size = new System.Drawing.Size(100, 20);
+            this.txtrangofin.TabIndex = 23;
+            this.txtrangofin.Text = "0";
+            this.txtrangofin.Visible = false;
+            this.txtrangofin.TextChanged += new System.EventHandler(this.txtrangofin_TextChanged);
+            // 
+            // lbrangohasta
+            // 
+            this.lbrangohasta.AutoSize = true;
+            this.lbrangohasta.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbrangohasta.ForeColor = System.Drawing.Color.White;
+            this.lbrangohasta.Location = new System.Drawing.Point(205, 68);
+            this.lbrangohasta.Name = "lbrangohasta";
+            this.lbrangohasta.Size = new System.Drawing.Size(38, 13);
+            this.lbrangohasta.TabIndex = 22;
+            this.lbrangohasta.Text = "Hasta";
+            this.lbrangohasta.Visible = false;
+            // 
+            // txtrangoin
+            // 
+            this.txtrangoin.Location = new System.Drawing.Point(93, 65);
+            this.txtrangoin.Name = "txtrangoin";
+            this.txtrangoin.Size = new System.Drawing.Size(100, 20);
+            this.txtrangoin.TabIndex = 21;
+            this.txtrangoin.Text = "0";
+            this.txtrangoin.Visible = false;
+            this.txtrangoin.TextChanged += new System.EventHandler(this.txtrangoin_TextChanged);
+            // 
+            // btnBorrarS
+            // 
+            this.btnBorrarS.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrarS.Location = new System.Drawing.Point(466, 317);
+            this.btnBorrarS.Name = "btnBorrarS";
+            this.btnBorrarS.Size = new System.Drawing.Size(119, 23);
+            this.btnBorrarS.TabIndex = 17;
+            this.btnBorrarS.Text = "Borrar seleccion";
+            this.btnBorrarS.UseVisualStyleBackColor = true;
+            this.btnBorrarS.Click += new System.EventHandler(this.btnBorrarS_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(211, 56);
+            this.label11.Location = new System.Drawing.Point(187, 149);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(156, 13);
             this.label11.TabIndex = 16;
@@ -171,7 +233,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(266, 47);
+            this.label10.Location = new System.Drawing.Point(242, 140);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(13, 13);
             this.label10.TabIndex = 15;
@@ -183,7 +245,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(266, 43);
+            this.label9.Location = new System.Drawing.Point(242, 136);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(13, 13);
             this.label9.TabIndex = 14;
@@ -196,9 +258,11 @@
             this.listhistorial.BackColor = System.Drawing.SystemColors.Window;
             this.listhistorial.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listhistorial.FormattingEnabled = true;
-            this.listhistorial.Location = new System.Drawing.Point(386, 9);
+            this.listhistorial.HorizontalScrollbar = true;
+            this.listhistorial.Location = new System.Drawing.Point(373, 12);
             this.listhistorial.Name = "listhistorial";
-            this.listhistorial.Size = new System.Drawing.Size(199, 221);
+            this.listhistorial.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listhistorial.Size = new System.Drawing.Size(273, 299);
             this.listhistorial.TabIndex = 13;
             this.listhistorial.SelectedIndexChanged += new System.EventHandler(this.listhistorial_SelectedIndexChanged);
             // 
@@ -209,7 +273,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(196, 123);
+            this.groupBox1.Location = new System.Drawing.Point(182, 222);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(175, 114);
             this.groupBox1.TabIndex = 11;
@@ -247,7 +311,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(60, 236);
+            this.button1.Location = new System.Drawing.Point(58, 313);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -257,16 +321,17 @@
             // 
             // txtValorX
             // 
-            this.txtValorX.Location = new System.Drawing.Point(60, 9);
+            this.txtValorX.Location = new System.Drawing.Point(49, 24);
             this.txtValorX.Name = "txtValorX";
             this.txtValorX.Size = new System.Drawing.Size(104, 20);
             this.txtValorX.TabIndex = 0;
+            this.txtValorX.TextChanged += new System.EventHandler(this.txtValorX_TextChanged);
             // 
             // resultadototal
             // 
             this.resultadototal.AutoSize = true;
             this.resultadototal.ForeColor = System.Drawing.Color.White;
-            this.resultadototal.Location = new System.Drawing.Point(114, 153);
+            this.resultadototal.Location = new System.Drawing.Point(113, 197);
             this.resultadototal.Name = "resultadototal";
             this.resultadototal.Size = new System.Drawing.Size(13, 13);
             this.resultadototal.TabIndex = 10;
@@ -274,16 +339,17 @@
             // 
             // txtValorP
             // 
-            this.txtValorP.Location = new System.Drawing.Point(232, 12);
+            this.txtValorP.Location = new System.Drawing.Point(208, 112);
             this.txtValorP.Name = "txtValorP";
             this.txtValorP.Size = new System.Drawing.Size(100, 20);
             this.txtValorP.TabIndex = 3;
+            this.txtValorP.TextChanged += new System.EventHandler(this.txtValorP_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(20, 152);
+            this.label5.Location = new System.Drawing.Point(19, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 13);
             this.label5.TabIndex = 9;
@@ -294,7 +360,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(31, 12);
+            this.label1.Location = new System.Drawing.Point(20, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 2;
@@ -303,7 +369,7 @@
             // btnCalcular
             // 
             this.btnCalcular.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcular.Location = new System.Drawing.Point(60, 179);
+            this.btnCalcular.Location = new System.Drawing.Point(58, 256);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(75, 23);
             this.btnCalcular.TabIndex = 4;
@@ -316,7 +382,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(203, 15);
+            this.label2.Location = new System.Drawing.Point(179, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 13);
             this.label2.TabIndex = 3;
@@ -327,7 +393,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(34, 76);
+            this.label3.Location = new System.Drawing.Point(19, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 6;
@@ -335,10 +401,11 @@
             // 
             // txtValorN
             // 
-            this.txtValorN.Location = new System.Drawing.Point(64, 70);
+            this.txtValorN.Location = new System.Drawing.Point(49, 113);
             this.txtValorN.Name = "txtValorN";
             this.txtValorN.Size = new System.Drawing.Size(100, 20);
             this.txtValorN.TabIndex = 2;
+            this.txtValorN.TextChanged += new System.EventHandler(this.txtValorN_TextChanged);
             // 
             // panel4
             // 
@@ -348,7 +415,7 @@
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(0, 56);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(720, 411);
+            this.panel4.Size = new System.Drawing.Size(720, 412);
             this.panel4.TabIndex = 16;
             // 
             // bunifuDragControl1
@@ -358,37 +425,16 @@
             this.bunifuDragControl1.TargetControl = this.label8;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // btnBorrarS
+            // btnRemoveList
             // 
-            this.btnBorrarS.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrarS.Location = new System.Drawing.Point(491, 236);
-            this.btnBorrarS.Name = "btnBorrarS";
-            this.btnBorrarS.Size = new System.Drawing.Size(94, 23);
-            this.btnBorrarS.TabIndex = 17;
-            this.btnBorrarS.Text = "Borrar seleccion";
-            this.btnBorrarS.UseVisualStyleBackColor = true;
-            this.btnBorrarS.Click += new System.EventHandler(this.btnBorrarS_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(20, 123);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(94, 13);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "Resultado Comb =";
-            // 
-            // lbresultcomb
-            // 
-            this.lbresultcomb.AutoSize = true;
-            this.lbresultcomb.ForeColor = System.Drawing.Color.White;
-            this.lbresultcomb.Location = new System.Drawing.Point(114, 123);
-            this.lbresultcomb.Name = "lbresultcomb";
-            this.lbresultcomb.Size = new System.Drawing.Size(13, 13);
-            this.lbresultcomb.TabIndex = 19;
-            this.lbresultcomb.Text = "0";
-            this.lbresultcomb.Click += new System.EventHandler(this.lbresultcomb_Click);
+            this.btnRemoveList.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveList.Location = new System.Drawing.Point(373, 317);
+            this.btnRemoveList.Name = "btnRemoveList";
+            this.btnRemoveList.Size = new System.Drawing.Size(87, 23);
+            this.btnRemoveList.TabIndex = 25;
+            this.btnRemoveList.Text = "Borrar Lista";
+            this.btnRemoveList.UseVisualStyleBackColor = true;
+            this.btnRemoveList.Click += new System.EventHandler(this.btnRemoveList_Click);
             // 
             // Form1
             // 
@@ -444,8 +490,11 @@
         private System.Windows.Forms.Panel panel4;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Button btnBorrarS;
-        private System.Windows.Forms.Label lbresultcomb;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtrangofin;
+        private System.Windows.Forms.Label lbrangohasta;
+        private System.Windows.Forms.TextBox txtrangoin;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnRemoveList;
     }
 }
 
