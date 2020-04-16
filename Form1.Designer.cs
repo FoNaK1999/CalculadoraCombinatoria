@@ -343,7 +343,7 @@
             this.txtValorP.Name = "txtValorP";
             this.txtValorP.Size = new System.Drawing.Size(100, 20);
             this.txtValorP.TabIndex = 3;
-            this.txtValorP.TextChanged += new System.EventHandler(this.txtValorP_TextChanged);
+            this.txtValorP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorP_KeyPress);
             // 
             // label5
             // 

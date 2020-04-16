@@ -42,7 +42,6 @@ namespace CalculadoraProb
 
                 n = double.Parse(txtValorN.Text);
 
-
                 if (txtValorP.Text.Contains("/"))
                 {
                     aux = txtValorP.Text.Split(new char[] { '/' }, 2);
@@ -311,28 +310,35 @@ namespace CalculadoraProb
             }
         }
 
-        private void txtValorP_TextChanged(object sender, EventArgs e)
+        private void txtValorP_KeyPress(object sender, KeyPressEventArgs e)
         {
-            double d=0;
-            try
+            //Para obligar a que sólo se introduzcan números
+            char slash = Convert.ToChar("/");
+            char coma = Convert.ToChar(",");
+            if (Char.IsDigit(e.KeyChar))
             {
-                d = Convert.ToDouble(txtValorP.Text);
+                e.Handled = false;
             }
-            catch (Exception ex)
+            else if (Char.IsControl(e.KeyChar) || e.KeyChar==slash || e.KeyChar == coma) //permitir teclas de control como retroceso
             {
-                if (d>1)
-                {
-
-                }
-                else
-                {
-                    txtValorP.Text = "0";
-                    txtValorP.Select(0, txtValorP.Text.Length);
-                }
-
-
-
+                e.Handled = false;
             }
+            else
+            {
+                //el resto de teclas pulsadas se desactivan
+                e.Handled = true;
+            }
+            if (txtValorP.Text.Contains(',') && (e.KeyChar == coma))
+            {
+                e.Handled = true;
+            }
+            if (txtValorP.Text.Contains('/') && (e.KeyChar == slash))
+            {
+                e.Handled = true;
+            }
+
+
+
         }
     }
 }
