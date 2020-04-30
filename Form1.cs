@@ -15,7 +15,7 @@ namespace CalculadoraProb
         public Form1()
         {
             InitializeComponent();
-            panel2.BackColor = Color.FromArgb(140, Color.Black);
+            panelCalculadoraBinominal.BackColor = Color.FromArgb(140, Color.Black);
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
@@ -41,6 +41,7 @@ namespace CalculadoraProb
                 //Declaracion variable de textbox
 
                 n = double.Parse(txtValorN.Text);
+                
 
                 if (txtValorP.Text.Contains("/"))
                 {
@@ -273,13 +274,21 @@ namespace CalculadoraProb
             try
             {
                 int d = Convert.ToInt32(txtValorN.Text);
+                if (d>170)
+                {
+                    MessageBox.Show("El numero maximo para N es 170.");
+                    txtValorN.Text = "0";
+                }
             }
             catch (Exception ex)
             {
                 txtValorN.Text = "0";
                 txtValorN.Select(0, txtValorN.Text.Length);
 
+
             }
+
+
         }
 
         private void txtrangoin_TextChanged(object sender, EventArgs e)
@@ -339,6 +348,18 @@ namespace CalculadoraProb
 
 
 
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            panelCalculadoraBinominal.Visible = true;
+            PanelCalcuNormal.Visible = false;
+        }
+
+        private void bunifuFlatButton2_Click(object sender, EventArgs e)
+        {
+            panelCalculadoraBinominal.Visible = false;
+            PanelCalcuNormal.Visible = true;
         }
     }
 }
