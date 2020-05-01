@@ -353,13 +353,13 @@ namespace CalculadoraProb
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             panelCalculadoraBinominal.Visible = true;
-            PanelCalcuNormal.Visible = false;
+            PanelDEN.Visible = false;
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             panelCalculadoraBinominal.Visible = false;
-            PanelCalcuNormal.Visible = true;
+            PanelDEN.Visible = true;
         }
     }
 }
