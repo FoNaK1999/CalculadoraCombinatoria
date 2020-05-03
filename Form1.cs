@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace CalculadoraProb
 {
@@ -16,6 +14,7 @@ namespace CalculadoraProb
         {
             InitializeComponent();
             panelCalculadoraBinominal.BackColor = Color.FromArgb(140, Color.Black);
+            
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
@@ -102,9 +101,7 @@ namespace CalculadoraProb
 
 
                             }
-
-                            
-
+                           
 
                         }
                         listhistorial.Items.Add("SUMA TOTAL :" + suma.ToString("#0.00000"));
@@ -360,6 +357,60 @@ namespace CalculadoraProb
         {
             panelCalculadoraBinominal.Visible = false;
             PanelDEN.Visible = true;
+        }
+
+        private void btnCalcularDNE_Click(object sender, EventArgs e)
+        {
+
+
+            double x, u, o,formuladne;
+
+            OperationsDNE opdne = new OperationsDNE();
+
+            x = double.Parse(txtX.Text);
+            u = double.Parse(txtU.Text);
+            o = double.Parse(txtO.Text);
+
+          
+            formuladne = opdne.DNE(x,u,o);
+
+            if (formuladne < 0)
+            {
+                MessageBox.Show("Numero Negativo");
+                lbResultado.Text = formuladne.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Numero Positivo");
+                lbResultado.Text = formuladne.ToString();
+            }
+
+            lbResultado.Text = formuladne.ToString();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            string conexion = "Provider = Microsoft.ACE.OleDB.12.0;Data Source = C:/Users/Martin/Documents/Visual Studio Projects/C#/Proyectos en GitHub/CalculadoraCombinatoria/BD/TablaDB.xlsx; Extended Properties = \"Excel 8.0; HDR = Yes\"";
+            OleDbConnection conector = default(OleDbConnection);
+            conector = new OleDbConnection(conexion);
+            conector.Open();
+
+            OleDbCommand consulta = default(OleDbCommand);//0.12
+            consulta = new OleDbCommand("Select Campo1,Campo2,Campo3 from [Hoja1$] where Campo1 = '0.1' and Campo3 =   ;  ", conector);
+
+            OleDbDataAdapter adaptador = new OleDbDataAdapter();
+            adaptador.SelectCommand = consulta;
+
+            
+
+            DataSet ds = new DataSet();
+            adaptador.Fill(ds);           
+            dataGridView1.DataSource = ds.Tables[0];
+            conector.Close();
+
+            //lbResultado.Text = dataGridView1.CurrentCell.Value.ToString();
         }
     }
 }

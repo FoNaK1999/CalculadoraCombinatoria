@@ -63,15 +63,17 @@
             this.txtValorN = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.PanelDEN = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lbResultado = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.txto = new System.Windows.Forms.TextBox();
-            this.txtu = new System.Windows.Forms.TextBox();
-            this.txtx = new System.Windows.Forms.TextBox();
+            this.txtO = new System.Windows.Forms.TextBox();
+            this.txtU = new System.Windows.Forms.TextBox();
+            this.txtX = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCalcularDNE = new System.Windows.Forms.Button();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.bunifuGradientPanel2 = new Bunifu.Framework.UI.BunifuGradientPanel();
@@ -84,6 +86,7 @@
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.PanelDEN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel5.SuspendLayout();
             this.bunifuGradientPanel2.SuspendLayout();
@@ -454,20 +457,49 @@
             // 
             // PanelDEN
             // 
+            this.PanelDEN.Controls.Add(this.dataGridView1);
+            this.PanelDEN.Controls.Add(this.button2);
+            this.PanelDEN.Controls.Add(this.lbResultado);
             this.PanelDEN.Controls.Add(this.pictureBox3);
-            this.PanelDEN.Controls.Add(this.txto);
-            this.PanelDEN.Controls.Add(this.txtu);
-            this.PanelDEN.Controls.Add(this.txtx);
+            this.PanelDEN.Controls.Add(this.txtO);
+            this.PanelDEN.Controls.Add(this.txtU);
+            this.PanelDEN.Controls.Add(this.txtX);
             this.PanelDEN.Controls.Add(this.label14);
             this.PanelDEN.Controls.Add(this.label13);
             this.PanelDEN.Controls.Add(this.label12);
-            this.PanelDEN.Controls.Add(this.listBox1);
-            this.PanelDEN.Controls.Add(this.button2);
+            this.PanelDEN.Controls.Add(this.btnCalcularDNE);
             this.PanelDEN.Location = new System.Drawing.Point(50, 40);
             this.PanelDEN.Name = "PanelDEN";
             this.PanelDEN.Size = new System.Drawing.Size(610, 350);
             this.PanelDEN.TabIndex = 16;
             this.PanelDEN.Visible = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 13);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(158, 136);
+            this.dataGridView1.TabIndex = 11;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(415, 313);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lbResultado
+            // 
+            this.lbResultado.AutoSize = true;
+            this.lbResultado.Location = new System.Drawing.Point(447, 222);
+            this.lbResultado.Name = "lbResultado";
+            this.lbResultado.Size = new System.Drawing.Size(13, 13);
+            this.lbResultado.TabIndex = 9;
+            this.lbResultado.Text = "0";
             // 
             // pictureBox3
             // 
@@ -478,26 +510,26 @@
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
             // 
-            // txto
+            // txtO
             // 
-            this.txto.Location = new System.Drawing.Point(210, 276);
-            this.txto.Name = "txto";
-            this.txto.Size = new System.Drawing.Size(100, 20);
-            this.txto.TabIndex = 7;
+            this.txtO.Location = new System.Drawing.Point(210, 276);
+            this.txtO.Name = "txtO";
+            this.txtO.Size = new System.Drawing.Size(100, 20);
+            this.txtO.TabIndex = 7;
             // 
-            // txtu
+            // txtU
             // 
-            this.txtu.Location = new System.Drawing.Point(208, 238);
-            this.txtu.Name = "txtu";
-            this.txtu.Size = new System.Drawing.Size(100, 20);
-            this.txtu.TabIndex = 6;
+            this.txtU.Location = new System.Drawing.Point(208, 238);
+            this.txtU.Name = "txtU";
+            this.txtU.Size = new System.Drawing.Size(100, 20);
+            this.txtU.TabIndex = 6;
             // 
-            // txtx
+            // txtX
             // 
-            this.txtx.Location = new System.Drawing.Point(209, 197);
-            this.txtx.Name = "txtx";
-            this.txtx.Size = new System.Drawing.Size(100, 20);
-            this.txtx.TabIndex = 5;
+            this.txtX.Location = new System.Drawing.Point(209, 197);
+            this.txtX.Name = "txtX";
+            this.txtX.Size = new System.Drawing.Size(100, 20);
+            this.txtX.TabIndex = 5;
             // 
             // label14
             // 
@@ -526,22 +558,15 @@
             this.label12.TabIndex = 2;
             this.label12.Text = "x:";
             // 
-            // listBox1
+            // btnCalcularDNE
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 108);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 225);
-            this.listBox1.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(510, 313);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Calcular";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCalcularDNE.Location = new System.Drawing.Point(510, 313);
+            this.btnCalcularDNE.Name = "btnCalcularDNE";
+            this.btnCalcularDNE.Size = new System.Drawing.Size(75, 23);
+            this.btnCalcularDNE.TabIndex = 0;
+            this.btnCalcularDNE.Text = "Calcular";
+            this.btnCalcularDNE.UseVisualStyleBackColor = true;
+            this.btnCalcularDNE.Click += new System.EventHandler(this.btnCalcularDNE_Click);
             // 
             // bunifuDragControl1
             // 
@@ -673,6 +698,7 @@
             this.panel4.ResumeLayout(false);
             this.PanelDEN.ResumeLayout(false);
             this.PanelDEN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel5.ResumeLayout(false);
             this.bunifuGradientPanel2.ResumeLayout(false);
@@ -719,15 +745,17 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private System.Windows.Forms.Panel PanelDEN;
-        private System.Windows.Forms.TextBox txto;
-        private System.Windows.Forms.TextBox txtu;
-        private System.Windows.Forms.TextBox txtx;
+        private System.Windows.Forms.TextBox txtO;
+        private System.Windows.Forms.TextBox txtU;
+        private System.Windows.Forms.TextBox txtX;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCalcularDNE;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lbResultado;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
